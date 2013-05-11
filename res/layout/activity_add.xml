@@ -1,0 +1,133 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddActivity" >
+
+    <TextView
+        android:id="@+id/tvCardNO"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/CardNO" />
+
+    <EditText
+        android:id="@+id/etCardNO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tvCardNO"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/tvCardName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/etCardNO"
+        android:layout_marginTop="14dp"
+        android:text="@string/CardName" />
+
+    <EditText
+        android:id="@+id/etCardName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tvCardName"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/tvCardData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/etCardName"
+        android:layout_marginTop="29dp"
+        android:text="@string/CardData" />
+
+    <TextView
+        android:id="@+id/tvCardBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tvCardData"
+        android:layout_centerHorizontal="true"
+        android:text="@string/CardBack" />
+
+    <EditText
+        android:id="@+id/etCardDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/tvCardData"
+        android:layout_below="@+id/tvCardData"
+        android:layout_marginTop="17dp"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/etCardBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/etCardDate"
+        android:layout_alignBottom="@+id/etCardDate"
+        android:layout_alignLeft="@+id/tvCardBack"
+        android:layout_alignRight="@+id/tvCardBack"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/tvCardGet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/etCardDate"
+        android:layout_marginTop="28dp"
+        android:text="@string/CardGet" />
+
+
+     
+    <Button
+        android:id="@+id/btAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="45dp"
+        android:layout_marginLeft="18dp"
+        android:layout_toRightOf="@+id/tvCardGet"
+        android:text="@string/Add" />
+
+    <Button
+        android:id="@+id/btCancle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btAdd"
+        android:layout_alignBottom="@+id/btAdd"
+        android:layout_toRightOf="@+id/etCardBack"
+        android:text="@string/Cancle" />
+
+   
+
+    <RadioGroup
+        android:id="@+id/radioCardGet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tvCardGet" >
+
+        <RadioButton
+            android:id="@+id/rdToday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/Today" />
+
+        <RadioButton
+            android:id="@+id/rdNoToday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/NoToday" />
+
+
+    </RadioGroup>
+
+</RelativeLayout>

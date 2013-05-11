@@ -1,0 +1,120 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CardsActivity" >
+
+    <TextView
+        android:id="@+id/tvCname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="29dp"
+        android:layout_marginTop="23dp"
+        android:text="@string/CardName" />
+
+    <TextView
+        android:id="@+id/tvCardName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvCname"
+        android:layout_below="@+id/tvCname"
+        android:layout_marginTop="16dp"
+        android:text="cname"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/tvNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvCardName"
+        android:layout_below="@+id/tvCardName"
+        android:layout_marginTop="18dp"
+        android:text="@string/CardNO" />
+
+    <TextView
+        android:id="@+id/tvCardNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvNo"
+        android:layout_below="@+id/tvNo"
+        android:layout_marginTop="18dp"
+        android:text="cno"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/tvThis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvCardNo"
+        android:layout_below="@+id/tvCardNo"
+        android:layout_marginTop="16dp"
+        android:text="@string/benqi" />
+
+    <TextView
+        android:id="@+id/tvLast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvThisPay"
+        android:layout_below="@+id/tvThis"
+        android:layout_marginTop="53dp"
+        android:text="@string/last" />
+
+    <TextView
+        android:id="@+id/tvThisPay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvThis"
+        android:layout_below="@+id/tvThis"
+        android:layout_marginTop="16dp"
+        android:text="this"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/tvLastPay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvLast"
+        android:layout_below="@+id/tvLast"
+        android:layout_marginTop="15dp"
+        android:text="last"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/tvDays"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tvNo"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/tvCname"
+        android:layout_marginRight="22dp"
+        android:text="paydays"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/tvLessDays"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tvCardNo"
+        android:layout_alignRight="@+id/tvDays"
+        android:text="@string/less" />
+
+    <Button
+        android:id="@+id/btpayback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/btdetail"
+        android:layout_alignRight="@+id/tvLessDays"
+        android:text="@string/payback" />
+
+    <Button
+        android:id="@+id/btdetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvLastPay"
+        android:layout_marginTop="28dp"
+        android:layout_toRightOf="@+id/tvLast"
+        android:text="@string/detail" />
+
+</RelativeLayout>
