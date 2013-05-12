@@ -8,7 +8,9 @@ import com.adam.mycreditcards.entity.Cardsbean;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
@@ -64,25 +66,46 @@ public class AddActivity extends Activity {
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
-			String cno = etCardNO.getText().toString();
+			String cno = etCardNO.getText().toString().trim();
 			String cname = etCardName.getText().toString();
 			String cdate = etCardDate.getText().toString();
 			String cback = etCardBack.getText().toString();
 			String cget = ""+radioButtonId;
-			dbService.open();
-			dbService.insertNew(cno, cname, cdate, cback, cget);
-			Intent intent = new Intent();
-			intent.setClass(AddActivity.this, MainActivity.class);
-			startActivity(intent);
+			if (cno.equals("")||cname.equals("")||cback.equals("")||cdate.equals("")) {
+				openOptionsDialog();
+			}else {
+				dbService.open();
+				dbService.insertNew(cno, cname, cdate, cback, cget);
+				Intent intent = new Intent();
+				intent.setClass(AddActivity.this, MainActivity.class);
+				startActivity(intent);
+			}		
 		}
 	};
+	
+	private void openOptionsDialog() {
+		new AlertDialog.Builder(this)
+				.setTitle(R.string.aboout_title)
+				.setMessage(R.string.error_null)
+				.setPositiveButton(R.string.about_button,
+						new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog, int i) {
+								// TODO Auto-generated method stub
+							}
+						})
+				// 弹窗对话框 需要导入import android.widget.Toast;
+				// Toast.makeText(this, "TIPS", Toast.LENGTH_SHORT)
+				.show();
+	}
+	
 
 	private OnClickListener cancle = new OnClickListener() {
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
 			Intent intent = new Intent();
-			intent.setClass(AddActivity.this, LauncherActivity.class);
+			intent.setClass(AddActivity.this, MainActivity.class);
 			startActivity(intent);
 		}
 	};

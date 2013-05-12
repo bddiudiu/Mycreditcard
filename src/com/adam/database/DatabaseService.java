@@ -104,8 +104,8 @@ public class DatabaseService {
 	 * @param id
 	 * @return
 	 */
-	public boolean  delete(String cno) {
-		return db.delete(Cardsbean.TABLE_NAME, Cardsbean.CNO + "="+ cno, null) > 0;
+	public boolean  delete(int cid) {
+		return db.delete(Cardsbean.TABLE_NAME, Cardsbean.ID + "="+ cid, null) > 0;
 	}
 
 	/**

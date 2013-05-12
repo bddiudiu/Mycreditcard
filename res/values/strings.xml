@@ -25,10 +25,10 @@
     <string name="last">上期还款额</string>
     <string name="detail">详细</string>
     <string name="payback">还款</string>
-    <string name="title_section3">Section 3</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section1">Section 1</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="title_activity_about">AboutActivity</string>
+    <string name="error_null">请确认您的输入</string>
+    <string name="error_title">出错啦</string>
+    <string name="title_activity_about">关于</string>
+    <string name="title_activity_cards_conf_">Cards_conf_Activity</string>
+    <string name="delete">删除</string>
 
 </resources>
