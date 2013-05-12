@@ -2,6 +2,8 @@ package com.adam.mycreditcards.ui;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import android.R.integer;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -11,14 +13,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
-import android.view.animation.Animation;
-import android.view.animation.Animation.AnimationListener;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
@@ -43,29 +40,26 @@ public class MainActivity extends Activity {
 	protected final static int MENU_ADD = Menu.FIRST;
 	protected static final int MENU_About = Menu.FIRST + 1;
 	protected static final int MENU_Edit = Menu.FIRST + 2;
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		madd = (ImageButton) findViewById(R.id.main_head_add);
-
+		madd = (ImageButton)findViewById(R.id.main_head_add);
+		
 		madd.setOnClickListener(new OnClickListener() {
-
+			
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent();
 				intent.setClass(MainActivity.this, AddActivity.class);
 				startActivity(intent);
+				
 			}
 		});
 		init();
 		count = listAdapter.getCount();
-		
 	}
-
-
 
 	public void init() {
 		try {
@@ -108,9 +102,10 @@ public class MainActivity extends Activity {
 				bundle.putString("cdate", cardsList.get(position).getCdate());
 				bundle.putString("cback", cardsList.get(position).getCback());
 				bundle.putString("cget", cardsList.get(position).getCget());
-				intent.putExtras(bundle);
+				intent.putExtras(bundle);		
 				startActivity(intent);
 			}
+
 		});
 	}
 
@@ -147,13 +142,13 @@ public class MainActivity extends Activity {
 	}
 
 	private void operation(String cmd) {
+		Intent intent = new Intent();
 		if (cmd == "add") {
-			Intent intent = new Intent();
+			
 			intent.setClass(MainActivity.this, AddActivity.class);
 			startActivity(intent);
-		}if (cmd=="edit") {
-			Intent intent = new Intent();
-			intent.setClass(MainActivity.this, Cards_conf_Activity.class);
+		}if (cmd == "edit") {
+			intent.setClass(this, Cards_conf_Activity.class);
 			startActivity(intent);
 		}
 	}
@@ -174,7 +169,7 @@ public class MainActivity extends Activity {
 				.show();
 	}
 
-	public class ListAdapter extends BaseAdapter {
+	private class ListAdapter extends BaseAdapter {
 		public ListAdapter() {
 			super();
 		}
@@ -223,16 +218,21 @@ public class MainActivity extends Activity {
 
 	public void onResume() {
 		super.onResume();
-		init();
+	}
+
+	public void onPause() {
+		super.onPause();
+	}
+
+	public void onStop() {
+		super.onStop();
 	}
 
 	public void onRestart() {
 		super.onRestart();
-		init();
 	}
 
 	public void onDestroy() {
 		super.onDestroy();
-		this.finish();
 	}
 }

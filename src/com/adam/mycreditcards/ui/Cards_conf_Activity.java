@@ -7,6 +7,8 @@ import com.adam.mycreditcards.R;
 import com.adam.mycreditcards.R.layout;
 import com.adam.mycreditcards.R.menu;
 import com.adam.mycreditcards.entity.Cardsbean;
+
+import android.R.integer;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -21,6 +23,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -33,6 +36,7 @@ public class Cards_conf_Activity extends Activity {
 	DatabaseService dbService = new DatabaseService(this);
 	private ListAdapter listAdapter;
 	String id;
+	ImageButton ib_home;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,19 @@ public class Cards_conf_Activity extends Activity {
 		setContentView(R.layout.activity_cards_conf_);
 		lv = (ListView) findViewById(R.id.listView_conf);
 		init();
+		
+		
+		ib_home = (ImageButton)findViewById(R.id.main_head_logo);
+		ib_home.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent();
+				intent.setClass(Cards_conf_Activity.this, MainActivity.class);
+				startActivity(intent);
+			}
+		});
 	}
 
 	public void init() {
@@ -162,7 +179,6 @@ public class Cards_conf_Activity extends Activity {
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
-		listAdapter.notifyDataSetChanged();
 	}
 
 }
