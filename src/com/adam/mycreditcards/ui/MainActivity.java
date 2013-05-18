@@ -2,7 +2,6 @@ package com.adam.mycreditcards.ui;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import android.R.integer;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -65,11 +64,11 @@ public class MainActivity extends Activity {
 		try {
 			dbService.open();
 			/* 查询表，得到cursor对象 */
-			myCursor = dbService.getAll();
+			myCursor = dbService.getAllCards();
 			myCursor.moveToFirst();
 			while (!myCursor.isAfterLast() && (myCursor.getString(1) != null)) {
 				Cardsbean cards = new Cardsbean();
-				cards.setId(myCursor.getString(0));
+				cards.setId(Integer.parseInt(myCursor.getString(0)));
 				cards.setCno(myCursor.getString(1));
 				cards.setCname(myCursor.getString(2));
 				cards.setCdate(myCursor.getString(3));
@@ -96,7 +95,7 @@ public class MainActivity extends Activity {
 				Intent intent = new Intent();
 				intent.setClass(MainActivity.this, CardsActivity.class);
 				bundle.putInt("count", count);
-				bundle.putString("cid", cardsList.get(position).getId());
+				bundle.putInt("cid", cardsList.get(position).getId());
 				bundle.putString("cno", cardsList.get(position).getCno());
 				bundle.putString("cname", cardsList.get(position).getCname());
 				bundle.putString("cdate", cardsList.get(position).getCdate());

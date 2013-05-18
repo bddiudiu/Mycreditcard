@@ -3,9 +3,6 @@
 
     <string name="app_name">我的信用卡</string>
     <string name="menu_settings">Settings</string>
-    <string name="table">cards</string>
-    <string name="noCards">您沒有新建您的信用卡信息,请点击下面的按钮添加</string>
-    <string name="addCards">添加信用卡</string>
     <string name="edit">编辑</string>
     <string name="CardNO">卡号</string>
     <string name="CardName">卡名</string>
@@ -28,7 +25,13 @@
     <string name="error_null">请确认您的输入</string>
     <string name="error_title">出错啦</string>
     <string name="title_activity_about">关于</string>
-    <string name="title_activity_cards_conf_">Cards_conf_Activity</string>
     <string name="delete">删除</string>
+    <string name="billname">账单名称</string>
+    <string name="bcid">选择卡片</string>
+    <string name="bdate">消费日期</string>
+    <string name="bcost">消费金额</string>            
+    <string name="bt_confirm">确定</string>
+    <string name="bt_cancle">取消</string>
+
 
 </resources>

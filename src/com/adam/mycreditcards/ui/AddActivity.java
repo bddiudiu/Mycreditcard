@@ -45,7 +45,7 @@ public class AddActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_add);
+		setContentView(R.layout.activity_addcards);
 		FindViews();
 		btAdd.setOnClickListener(add);
 		btCancle.setOnClickListener(cancle);
@@ -75,7 +75,7 @@ public class AddActivity extends Activity {
 				openOptionsDialog();
 			}else {
 				dbService.open();
-				dbService.insertNew(cno, cname, cdate, cback, cget);
+				dbService.insertCards(cno, cname, cdate, cback, cget);
 				Intent intent = new Intent();
 				intent.setClass(AddActivity.this, MainActivity.class);
 				startActivity(intent);

@@ -7,23 +7,18 @@ public class Cardsbean {
 	public static final String CDATE = "cdate";
 	public static final String CBACK = "cback";
 	public static final String CGET = "cget";
-	public static final String DATABASE_NAME = "mcard_db";//数据库的名字
-	public static final int DATABASE_VERSION = 1;//数据库的版本
-	public static final String TABLE_NAME = "cards";
-	public static final String createsql = "Create table "+TABLE_NAME+" (_id  integer primary key autoincrement," +
-		    "cno text ,cname text ,cdate text,cback text ,cget text)" ;
-	public static final String selectOne = "select * frome"+TABLE_NAME+"where _id =" ;
+
 	
-	private String id;
+	private Integer id;
 	private String cno;	
 	private String cname;
 	private String cdate;
 	private String cback;
 	private String cget;
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getCname() {

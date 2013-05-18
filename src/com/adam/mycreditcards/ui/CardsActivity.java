@@ -5,9 +5,13 @@ import com.adam.database.DatabaseService;
 import com.adam.mycreditcards.R;
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.database.Cursor;
 import android.util.Log;
 import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class CardsActivity extends Activity {
@@ -17,6 +21,7 @@ public class CardsActivity extends Activity {
 	public TextView tvThisPay;
 	public TextView tvLastPay;
 	public TextView tvDays;
+	private ImageButton madd;
 
 	DatabaseService dbService = new DatabaseService(this);
 	private Cursor myCursor;
@@ -28,12 +33,26 @@ public class CardsActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_cards);
+		setContentView(R.layout.activity_cardsinfo);
 		findViews();
 		getCards();
-		getPayDay();
+//		getPayDay();
 		fillViews();
-
+		
+		
+		madd.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent();
+				intent.setClass(CardsActivity.this, AddbillsActivity.class);
+				startActivity(intent);
+				
+			}
+		});
+		
+		
 	}
 
 	private void getPayDay() throws NumberFormatException {
@@ -78,9 +97,9 @@ public class CardsActivity extends Activity {
 	private void getCards() {
 		dbService.open();
 		Bundle bundle = this.getIntent().getExtras();
-		String id = bundle.getString("cid");
-		myCursor = dbService.getOne(id);
-
+		Integer id = bundle.getInt("cid");
+		myCursor = dbService.getOneCards(id);
+		dbService.close();
 	}
 
 	private void findViews() {
@@ -89,6 +108,7 @@ public class CardsActivity extends Activity {
 		tvThisPay = (TextView) findViewById(R.id.tvThisPay);
 		tvLastPay = (TextView) findViewById(R.id.tvLastPay);
 		tvDays = (TextView) findViewById(R.id.tvDays);
+		madd = (ImageButton)findViewById(R.id.main_head_add);
 	}
 
 	@Override

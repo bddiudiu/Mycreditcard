@@ -24,19 +24,26 @@
         </activity>
         <activity
             android:name="com.adam.mycreditcards.ui.AddActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:theme="@style/Theme.NoTitleBar" >
         </activity>
         <activity
             android:name="com.adam.mycreditcards.ui.CardsActivity"
-            android:label="@string/app_name" >
+            android:theme="@style/Theme.NoTitleBar" >
         </activity>
         <activity
             android:name="com.adam.mycreditcards.ui.AboutActivity"
-            android:label="@string/title_activity_about" >
+            android:theme="@style/Theme.NoTitleBar" >
         </activity>
         <activity
             android:name="com.adam.mycreditcards.ui.Cards_conf_Activity"
-            android:label="@string/title_activity_cards_conf_" >
+            android:theme="@style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.adam.mycreditcards.ui.BillsActivity" android:theme="@style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.adam.mycreditcards.ui.AddbillsActivity" android:theme="@style/Theme.NoTitleBar" >
         </activity>
     </application>
 

@@ -35,7 +35,7 @@ public class Cards_conf_Activity extends Activity {
 	private Cursor myCursor;
 	DatabaseService dbService = new DatabaseService(this);
 	private ListAdapter listAdapter;
-	String id;
+	Integer id;
 	ImageButton ib_home;
 
 	@Override
@@ -63,11 +63,11 @@ public class Cards_conf_Activity extends Activity {
 		try {
 			dbService.open();
 			/* 查询表，得到cursor对象 */
-			myCursor = dbService.getAll();
+			myCursor = dbService.getAllCards();
 			myCursor.moveToFirst();
 			while (!myCursor.isAfterLast() && (myCursor.getString(1) != null)) {
 				Cardsbean cards = new Cardsbean();
-				cards.setId(myCursor.getString(0));
+				cards.setId(Integer.parseInt(myCursor.getString(0)));
 				cards.setCno(myCursor.getString(1));
 				cards.setCname(myCursor.getString(2));
 				cards.setCdate(myCursor.getString(3));
@@ -91,9 +91,9 @@ public class Cards_conf_Activity extends Activity {
 					int position, long arg3) {
 				// TODO Auto-generated method stub
 				dbService.open();
-				id = cardsList.get(position).getId().trim();
-				Log.i("conf", id);
-				dbService.delete(Integer.parseInt(id));
+				id = cardsList.get(position).getId();
+				Log.i("conf", "id");
+				dbService.deletefromCards(id);
 			}
 		});
 	}
@@ -146,7 +146,7 @@ public class Cards_conf_Activity extends Activity {
 					+ cardsList.get(position).getCno());
 			TextView edit = (TextView) view.findViewById(R.id.tvEdit);
 			edit.setText(R.string.delete);
-			edit.setId(Integer.parseInt(cardsList.get(position).getId()));
+			edit.setId(cardsList.get(position).getId());
 			
 			edit.setOnClickListener(new OnClickListener() {
 				
@@ -154,7 +154,7 @@ public class Cards_conf_Activity extends Activity {
 				public void onClick(View view) {
 					// TODO Auto-generated method stub
 					try {
-						dbService.delete(view.getId());
+						dbService.deletefromCards(view.getId());
 						cardsList.remove(position);
 						lv.setAdapter(new ListAdapter());
 					}
